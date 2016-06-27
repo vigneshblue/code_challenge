@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'employee_details/new'
+
+  root to: "organisation#home"
+
+  get 'organisation/table'
+
+  get 'organisation/list'
+
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
