@@ -15,6 +15,10 @@ class EmployeeDetailsController < ApplicationController
   	end
   end
 
+  def show
+    
+  end
+
   private
 
   		def emp_params

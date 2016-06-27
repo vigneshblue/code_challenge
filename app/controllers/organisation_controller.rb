@@ -3,8 +3,12 @@ class OrganisationController < ApplicationController
   end
 
   def table
+  	@employee = EmployeeDetail.all
   end
 
   def list
+  end
+
+  def show
   end
 end
