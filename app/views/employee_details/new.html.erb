@@ -1,2 +1,15 @@
-<h1>EmployeeDetails#new</h1>
-<p>Find me in app/views/employee_details/new.html.erb</p>
+<h1>Add employee detail</h1>
+<div>
+	<%= form_for(@employee_detail) do |f| %>
+	<%= f.label :name, "Name : " %>
+	<%= f.text_field :name %>
+	
+	<%= f.label :designation, "  Designation : " %>
+	<%= f.text_field :designation %>
+	
+	<%= f.label :reporting_manager, "  Reporting Manager : " %>
+	<%= f.text_field :reporting_manager %>
+	
+	<%= f.submit "Add Employee" %>
+	<% end %>
+	</div>

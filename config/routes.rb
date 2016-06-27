@@ -3,9 +3,11 @@ Rails.application.routes.draw do
 
   root to: "organisation#home"
 
-  get 'organisation/table'
+  get 'table' => 'organisation#table'
 
   get 'organisation/list'
+
+  resources :employee_details
 
   
 
