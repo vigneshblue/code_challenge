@@ -8,8 +8,8 @@
 	<%= f.text_field :designation %>
 	
 	<%= f.label :reporting_manager, "  Reporting Manager : " %>
-	<%= f.text_field :reporting_manager %>
+	
+	<%= f.collection_select(:reporting_manager, @employee,:name,:name) %>
 	
 	<%= f.submit "Add Employee" %>
 	<% end %>
-	</div>

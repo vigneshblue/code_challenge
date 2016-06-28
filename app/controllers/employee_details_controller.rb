@@ -1,6 +1,7 @@
 class EmployeeDetailsController < ApplicationController
   def new
   	@employee_detail = EmployeeDetail.new
+    @employee = EmployeeDetail.select("name")
   end
 
   def create
