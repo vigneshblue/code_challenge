@@ -1,2 +1,50 @@
-<h1>Organisation#list</h1>
-<p>Find me in app/views/organisation/list.html.erb</p>
+<h1>List View</h1>
+<% @employee.each do |e| %>
+	<% if e.reporting_manager.blank? %>
+		<ul style="list-style-type:circle;">
+			<li><%= e.name %><span> </span><%= e.designation %></li>
+		</ul>		
+	
+			<% @employee.each do |f| %>
+				<%if f.reporting_manager == e.name %>
+					<ul style="margin-left:30px; list-style-type:square;">
+						<li><%= f.name %><span> </span><%= f.designation %></li>
+					</ul>
+
+						<% @employee.each do |g| %>
+							<% if g.reporting_manager == f.name %>
+								<ul style="margin-left:60px; list-style-type:disc;">
+									<li><%= g.name %><span> </span><%= g.designation %></span></li>
+								</ul>
+
+									<% @employee.each do |h| %>
+										<% if h.reporting_manager == g.name %>
+											<ul style="margin-left:90px; list-style-type:disc;">
+												<li><%= h.name %><span> </span><%= h.designation %></span></li>
+											</ul>
+
+												<% @employee.each do |i| %>
+													<% if i.reporting_manager == h.name %>
+														<ul style="margin-left:120px; list-style-type:disc;">
+															<li><%= i.name %><span> </span><%= i.designation %></span></li>
+														</ul>
+
+															<% @employee.each do |j| %>
+																<% if j.reporting_manager == i.name %>
+																	<ul style="margin-left:150px; list-style-type:disc;">
+																		<li><%= j.name %><span> </span><%= j.designation %></span></li>
+																	</ul>
+
+																<% end %>
+															<% end %>
+
+													<% end %>
+												<% end %>
+										<% end %>
+									<% end %>
+							<% end %>
+						<% end %>
+				<% end %>	
+			<% end %>
+	<% end %>
+<% end %>

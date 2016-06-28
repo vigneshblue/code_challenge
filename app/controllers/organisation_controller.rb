@@ -7,6 +7,7 @@ class OrganisationController < ApplicationController
   end
 
   def list
+  	@employee = EmployeeDetail.all
   end
 
   def show

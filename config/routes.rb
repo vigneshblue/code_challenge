@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'employee_details/new'
+  get 'new' => 'employee_details#new'
 
   get 'employee_details/show'
 
