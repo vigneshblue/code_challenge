@@ -1,1 +1,19 @@
-<%= select_tag(:user_id, '<option value="1">Jemmy Legs</option><option value="2">Talos</option>'.html_safe) %>
+<% provide(:title, "Home") %>
+<div class="center jumbotron">
+  <h1>ACME Ltd - Organisation hierarchy</h1>
+
+  <h2>
+    Please select from following views.
+  </h2>
+	<div class="center jumbotron">
+  		<div class="col-md-3">                
+ 			<%= link_to "Table", table_path, class: "btn btn-block btn-lg btn-primary" %>
+  		</div>
+  		<div class="col-md-3 col-md-offset-1">                
+ 			<%= link_to "List", list_path, class: "btn btn-block btn-lg btn-primary" %>
+ 		</div>
+ 		<div class="col-md-3 col-md-offset-1">                
+ 			<%= link_to "Tree", tree_path, class: "btn btn-block btn-lg btn-primary" %>
+  		</div> 
+  	</div>
+</div>

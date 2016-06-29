@@ -1,17 +1,18 @@
+<% provide(:title, "Table") %>
 <h1>Employee Details</h1>
-<table style="width:800px;border-collapse:collapse;color:#333;border:1px solid black;">
-	<tr style="height:40px;border-collapse:collapse;color:#333;border:1px solid black">
-		<th style="text-align:left;border:1px solid black">Emp ID</th>
-		<th style="text-align:left;border:1px solid black">Name</th>
-		<th style="text-align:left;border:1px solid black">Designation</th>
-		<th style="text-align:left;border:1px solid black">Manager</th>
+<table class="table">
+	<tr>
+		<th>Emp ID</th>
+		<th>Name</th>
+		<th>Designation</th>
+		<th>Manager</th>
 	</tr>
 	<% @employee.each do |e| %>
-	<tr style="height:30px;border-collapse:collapse;color:#333;border:1px solid black">
-		<td style="border:1px solid black"><%= e.id %> </td>
-		<td style="border:1px solid black"><%= e.name %> </td>
-		<td style="border:1px solid black"><%= e.designation %> </td>
-		<td style="border:1px solid black"><%= e.reporting_manager %> </td>
+	<tr>
+		<td><%= e.id %> </td>
+		<td><%= e.name %> </td>
+		<td><%= e.designation %> </td>
+		<td><%= e.reporting_manager %> </td>
 	</tr>
 	<% end %>
 </table>

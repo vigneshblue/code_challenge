@@ -1,4 +1,8 @@
-<h1>Employee Detail</h1>
-<p>Name : <%= @employee_detail.name %>
-<p>Designation : <%= @employee_detail.designation %>
-<p>Manager : <%= @employee_detail.reporting_manager %>
+<% provide(:title, @employee_detail.name) %>
+<div class="center">
+<h1><%= @employee_detail.name.upcase %></h1>
+<div class="col-md-6 text-right">Name : </div><div class="text-left"><strong><%= @employee_detail.name %></strong></div>
+<div class="col-md-6 text-right">Designation : </div><div class="text-left"><strong><%= @employee_detail.designation %></strong></div>
+<div class="col-md-6 text-right">Manager : </div><div class="text-left"><strong><%= @employee_detail.reporting_manager %></strong></div>
+</div>
+
