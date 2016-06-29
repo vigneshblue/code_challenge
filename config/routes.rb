@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
   get 'new' => 'employee_details#new'
 
-  get 'employee_details/show'
+
+  #get 'employee_details/show'
 
   root to: "organisation#home"
 
   get 'table' => 'organisation#table'
 
   get 'list' => 'organisation#list'
+
+  get 'tree' => 'organisation#tree'
 
   resources :employee_details
 

@@ -1,4 +1,4 @@
-<h1>Add employee detail</h1>
+<h1>Edit employee detail</h1>
 
 	<%= form_for(@employee_detail) do |f| %>
 	<%= f.label :name, "Name : " %>
@@ -11,5 +11,5 @@
 	
 	<%= f.collection_select(:reporting_manager, @employee,:name,:name) %>
 	
-	<%= f.submit "Add Employee" %>
+	<%= f.submit "Save Changes" %>
 	<% end %>
