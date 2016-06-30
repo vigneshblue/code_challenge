@@ -1,6 +1,7 @@
 <% provide(:title,"Edit") %>
 <h1>Edit employee detail</h1>
-
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
 	<%= form_for(@employee_detail) do |f| %>
 	<%= f.label :name, "Name : " %>
 	<%= f.text_field :name %>
@@ -12,5 +13,7 @@
 	
 	<%= f.collection_select(:reporting_manager, @employee,:name,:name) %>
 	
-	<%= f.submit "Save Changes" %>
+	<%= f.submit "Save Changes", class: "btn btn-primary" %>
 	<% end %>
+	</div>
+	</div>

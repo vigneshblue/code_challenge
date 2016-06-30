@@ -4,6 +4,7 @@ class OrganisationController < ApplicationController
 
   def table
   	@employee = EmployeeDetail.all
+  
   end
 
   def list

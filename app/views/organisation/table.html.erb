@@ -1,19 +1,28 @@
 <% provide(:title, "Table") %>
+<div class="col-md-2 col-md-offset-10">                
+ 			<%= link_to "Add new", new_url, class: "btn btn-block btn-primary" %>
+  		</div>
+  		<div class="center">
 <h1>Employee Details</h1>
-<table class="table">
-	<tr>
+<table class="table table-hover">
+<thead>
+	<tr class="text-left">
 		<th>Emp ID</th>
 		<th>Name</th>
 		<th>Designation</th>
 		<th>Manager</th>
 	</tr>
+	</thead>
 	<% @employee.each do |e| %>
-	<tr>
+	<% @employee_detail = EmployeeDetail.find(e.id) %>
+	<tbody>
+	<tr class="text-left">
 		<td><%= e.id %> </td>
-		<td><%= e.name %> </td>
+		<td><%= link_to e.name,e %> </td>
 		<td><%= e.designation %> </td>
 		<td><%= e.reporting_manager %> </td>
 	</tr>
 	<% end %>
+	</tbody>
 </table>
-<%= link_to "Add new", new_url %>
+</div>
