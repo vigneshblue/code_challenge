@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'new' => 'employee_details#new'
 
 
-  get 'employee' => 'employee_details#show'
+  #get 'employee' => 'employee_details#show'
 
   root to: "organisation#home"
 

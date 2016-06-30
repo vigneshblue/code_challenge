@@ -8,12 +8,10 @@ class OrganisationController < ApplicationController
   end
 
   def list
-  	@employee = EmployeeDetail.all
+  	@employee1 = EmployeeDetail.all
   end
 
-  def tree
-  	
-  end
+ 
 
   def show
   	
