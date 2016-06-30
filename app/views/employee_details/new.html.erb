@@ -11,7 +11,7 @@
 	
 	<%= f.label :reporting_manager, "  Reporting Manager : " %>
 	
-	<%= f.collection_select(:reporting_manager, @employee,:name,:name) %>
+	<%= f.collection_select(:reporting_manager, @employee,:id,:name) %>
 	
 	<%= f.submit "Add Employee", class: "btn btn-primary" %>
 	<% end %>

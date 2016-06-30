@@ -14,13 +14,19 @@
 	</tr>
 	</thead>
 	<% @employee.each do |e| %>
-	<% @employee_detail = EmployeeDetail.find(e.id) %>
+	<% if e.reporting_manager %>
+	<% @idman = Integer(e.reporting_manager) %>
+	<% @manager = EmployeeDetail.find(@idman) %>
+	<% else %>
+	<% @manager = EmployeeDetail.find(1) %>
+	<% @manager.name = nil %>
+	<% end %>
 	<tbody>
 	<tr class="text-left">
 		<td><%= e.id %> </td>
 		<td><%= link_to e.name,e %> </td>
 		<td><%= e.designation %> </td>
-		<td><%= e.reporting_manager %> </td>
+		<td><%= @manager.name %> </td>
 	</tr>
 	<% end %>
 	</tbody>

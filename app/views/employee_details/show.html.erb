@@ -11,7 +11,15 @@
 <div class="col-md-6 text-right">Designation : </div><div class="text-left"><strong><%= @employee_detail.designation %></strong></div>
 </div>
 <div class="row gap30">
-<div class="col-md-6 text-right">Manager : </div><div class="text-left"><strong><%= @employee_detail.reporting_manager %></strong></div>
+<div class="col-md-6 text-right">Manager : </div><div class="text-left">
+<% if @employee_detail.reporting_manager %>
+	<% @idman = Integer(@employee_detail.reporting_manager) %>
+	<% @manager = EmployeeDetail.find(@idman) %>
+	<% else %>
+	<% @manager = EmployeeDetail.find(1) %>
+	<% @manager.name = nil %>
+	<% end %>
+	<strong><%= @manager.name %></strong></div>	
 </div>
 </div>
 

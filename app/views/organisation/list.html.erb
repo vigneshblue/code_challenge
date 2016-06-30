@@ -7,30 +7,30 @@
 				
 	
 			<% @employee.each do |f| %>
-				<%if f.reporting_manager == e.name %>
+				<%if f.reporting_manager == e.id.to_s %>
 					<ul style="list-style-type:square;">
 						<li><%= f.name %><span> </span><%= f.designation %>
 					
 
 						<% @employee.each do |g| %>
-							<% if g.reporting_manager == f.name %>
+							<% if g.reporting_manager == f.id.to_s %>
 								<ul style="list-style-type:disc;">
 									<li><%= g.name %><span> </span><%= g.designation %></span>
 								
 
 									<% @employee.each do |h| %>
-										<% if h.reporting_manager == g.name %>
+										<% if h.reporting_manager == g.id.to_s %>
 											<ul style="list-style-type:disc;">
 												<li><%= h.name %><span> </span><%= h.designation %></span>
 											
 
 												<% @employee.each do |i| %>
-													<% if i.reporting_manager == h.name %>
+													<% if i.reporting_manager == h.id.to_s %>
 														<ul style="list-style-type:disc;">
 															<li><%= i.name %><span> </span><%= i.designation %></span>
 
 															<% @employee.each do |j| %>
-																<% if j.reporting_manager == i.name %>
+																<% if j.reporting_manager == i.id.to_s %>
 																	<ul style="list-style-type:disc;">
 																		<li><%= j.name %><span> </span><%= j.designation %></span></li>
 																	</ul>
