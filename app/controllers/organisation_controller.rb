@@ -11,6 +11,10 @@ class OrganisationController < ApplicationController
   	@employee = EmployeeDetail.all
   end
 
+  def tree
+  	@employee = EmployeeDetail.all
+  end
+
   def show
   	
   end

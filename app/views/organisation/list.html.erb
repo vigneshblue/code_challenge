@@ -7,58 +7,21 @@
 <div class="row gap40">
 	<% if e.reporting_manager.blank? %>
 		<ul style="list-style-type:circle;">
-			<li><strong class="list"><%= link_to e.name,e,title: e.designation %></strong> <small><%= e.designation %></small>
-				
-	
-			<% @employee.each do |f| %>
-				<%if f.reporting_manager == e.id.to_s %>
+			<li><strong class="list"><%= link_to e.name,e,title: e.designation %></strong> <small><%= e.designation %></small>	
+		<% listing(e.id) %>
+		<% def listing(id) %>
+			<% @employee.each do |f| %>	
+				<%if f.reporting_manager == id.to_s %>
 					<ul style="list-style-type:square;">
 						<li><strong class="list"><%= link_to f.name,f,title: f.designation %></strong> <small><%= f.designation %></small>
-					
-
-						<% @employee.each do |g| %>
-							<% if g.reporting_manager == f.id.to_s %>
-								<ul style="list-style-type:disc;">
-									<li><strong class="list"><%= link_to g.name,g,title: g.designation %></strong> <small><%= g.designation %></small>
-								
-
-									<% @employee.each do |h| %>
-										<% if h.reporting_manager == g.id.to_s %>
-											<ul style="list-style-type:disc;">
-												<li><strong class="list"><%= link_to h.name,h,title: h.designation %></strong> <small><%= h.designation %></small>
-											
-
-												<% @employee.each do |i| %>
-													<% if i.reporting_manager == h.id.to_s %>
-														<ul style="list-style-type:disc;">
-															<li><strong class="list"><%= link_to i.name,i,title: i.designation %></strong> <small><%= i.designation %></small>
-
-															<% @employee.each do |j| %>
-																<% if j.reporting_manager == i.id.to_s %>
-																	<ul style="list-style-type:disc;">
-																		<li><strong class="list"><%= link_to j.name,j,title: j.designation %></strong> <small><%= j.designation %></small></li>
-																	</ul>
-
-																<% end %>
-															<% end %>
-															</li>
-															</ul>
-													<% end %>
-												<% end %>
-												</li>
-												</ul>
-										<% end %>
-									<% end %>
-									</li>
-									</ul>
-							<% end %>
-						<% end %>
+						<% listing(f.id) %>
 						</li>
-						</ul>
-				<% end %>	
-			<% end %>
+					</ul>				
+				 <% end %>
+			<% end%>
+		<% end %>	
 			</li>
-			</ul>
+		</ul>		
 	<% end %>
-	</div>
+</div>
 <% end %>
