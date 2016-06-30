@@ -3,14 +3,14 @@
  			<%= link_to "Add new", new_url, class: "btn btn-block btn-primary" %>
   		</div>
 <h1>List View</h1>
-<% @employee1.each do |e| %>
+<% @employee.each do |e| %>
 <div class="row gap40">
 	<% if e.reporting_manager.blank? %>
 		<ul style="list-style-type:circle;">
 			<li><strong class="list"><%= link_to e.name,e,title: e.designation %></strong> <small><%= e.designation %></small>	
-		<% listing(e.id) %>
+		
 		<% def listing(id) %>
-			<% @employee1.each do |f| %>	
+			<% @employee.each do |f| %>	
 				<%if f.reporting_manager == id.to_s %>
 					<ul style="list-style-type:square;">
 						<li><strong class="list"><%= link_to f.name,f,title: f.designation %></strong> <small><%= f.designation %></small>
@@ -19,7 +19,8 @@
 					</ul>				
 				 <% end %>
 			<% end%>
-		<% end %>	
+		<% end %>
+		<% listing(e.id) %>	
 			</li>
 		</ul>		
 	<% end %>

@@ -8,7 +8,7 @@ class OrganisationController < ApplicationController
   end
 
   def list
-  	@employee1 = EmployeeDetail.all
+  	@employee = EmployeeDetail.all
   end
 
  
