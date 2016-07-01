@@ -1,0 +1,32 @@
+<% provide(:title, "Tree") %>
+<div class="col-md-2 col-md-offset-10">                
+ 			<%= link_to "Add new", new_url, class: "btn btn-block btn-primary" %></div>  		
+<h1>Tree View</h1>
+
+<script>
+jQuery(document).ready(function() { $("#org").jOrgChart(); });
+</script>
+<div class="row gap40">
+<div></div>>
+	<% @employee.each do |e| %>
+	<% if e.reporting_manager.blank? %>
+		<ul id="org" style="display:none">
+			<li><strong class="list"><%= link_to e.name,e,title: e.designation %></strong> <small><%= e.designation %></small>	
+		
+		<% def listing(id) %>
+			<% @employee.each do |f| %>	
+				<%if f.reporting_manager == id.to_s %>
+					<ul>
+						<li><strong class="list"><%= link_to f.name,f,title: f.designation %></strong> <small><%= f.designation %></small>
+						<% listing(f.id) %>
+						</li>
+					</ul>				
+				 <% end %>
+			<% end%>
+		<% end %>
+			</li>
+		</ul>		
+	<% end %>
+<% end %>
+</div>
+</div>
