@@ -8,10 +8,13 @@
 	
 	<%= f.label :designation, "  Designation : " %>
 	<%= f.text_field :designation %>
+	<% if @employee_detail.reporting_manager.blank? %>
+	<% else %>
 	
 	<%= f.label :reporting_manager, "  Reporting Manager : " %>
 	
 	<%= f.collection_select(:reporting_manager, @employee,:id,:name) %>
+	<% end %>
 	
 	<%= f.submit "Save Changes", class: "btn btn-primary" %>
 	<% end %>
