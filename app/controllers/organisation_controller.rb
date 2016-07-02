@@ -4,7 +4,6 @@ class OrganisationController < ApplicationController
 
   def table
   	@employee = EmployeeDetail.all
-
   end
 
   def list
@@ -13,10 +12,6 @@ class OrganisationController < ApplicationController
 
   def tree
   	@employee = EmployeeDetail.all
-  end
- 
-
-  def show
-  	
-  end
+  end 
+  
 end

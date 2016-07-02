@@ -14,8 +14,8 @@
 	</tr>
 	</thead>
 	<% @employee.each do |e| %>
-	<% if e.reporting_manager %>
-	<% @manager_name = e.reporting_details.name %>
+	<% if e.manager_id %>
+	<% @manager_name = e.manager.name %>
 	<% else %>
 	<% @manager_name = nil %>
 	<% end %>

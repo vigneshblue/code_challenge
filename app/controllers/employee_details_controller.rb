@@ -23,17 +23,16 @@ class EmployeeDetailsController < ApplicationController
 
   def edit
     @employee_detail = EmployeeDetail.find(params[:id])
-     @employee = EmployeeDetail.all
+    @employee = EmployeeDetail.all
   end
 
   def update
      @employee_detail = EmployeeDetail.find(params[:id])
      @employee = EmployeeDetail.all
-     #@manager = EmployeeDetail.find_by(reporting_manager: @employee)
+     #@manager = EmployeeDetail.find_by(manager_id: @employee)
      if @employee_detail.update_attributes(emp_params)
      # @manager.update_attributes(manager_params)
       flash[:success] = "Updated Successfully"
-
       redirect_to @employee_detail
      else
       render 'edit'
@@ -43,11 +42,11 @@ class EmployeeDetailsController < ApplicationController
 
   private
 
-  		def emp_params
-  			params.require(:employee_detail).permit(:name, :designation, :reporting_manager)
+  	def emp_params
+  			params.require(:employee_detail).permit(:name, :designation, :manager_id)
   	end
     def manager_params
-      params.require(:employee_detail).permit(:reporting_manager)
+      params.require(:employee_detail).permit(:manager_id)
     end
 
 end

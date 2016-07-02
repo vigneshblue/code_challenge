@@ -1,7 +1,7 @@
 <% provide(:title, @employee_detail.name) %>
 <div class="col-md-2 col-md-offset-10">                
- 			<%= link_to "Edit", edit_employee_detail_path(@employee_detail), class: "btn btn-block btn-primary" %>
-  		</div>
+ 	<%= link_to "Edit", edit_employee_detail_path(@employee_detail), class: "btn btn-block btn-primary" %>
+</div>
 <div class="center">
 <h1><%= @employee_detail.name.upcase %></h1>
 <div class="row gap30">
@@ -12,14 +12,12 @@
 </div>
 <div class="row gap30">
 <div class="col-md-6 text-right">Manager : </div><div class="text-left">
-<% if @employee_detail.reporting_manager %>
-	<% @idman = Integer(@employee_detail.reporting_manager) %>
-	<% @manager = EmployeeDetail.find(@idman) %>
+    <% if @employee_detail.manager_id %>
+	<% @manager_name = @employee_detail.manager.name  %>
 	<% else %>
-	<% @manager = EmployeeDetail.find(1) %>
-	<% @manager.name = nil %>
+	<% @manager_name = nil %>
 	<% end %>
-	<strong><%= @manager.name %></strong></div>	
+	<strong><%= @manager_name %></strong></div>	
 </div>
 </div>
 

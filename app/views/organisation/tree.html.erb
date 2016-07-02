@@ -7,19 +7,17 @@
 </div>
 </div>
 <% @employee.each do |e| %>
-	<% if e.reporting_manager.blank? %>
+	<% if e.manager_id.blank? %>
 		<ul id="org" style="display:none">
 			<li><strong class="list"><%= link_to e.name,e,title: e.designation %></strong> <small><%= e.designation %></small>	
 		
 		<% def listing(id) %>
 			<ul>
 			<% @employee.each do |f| %>	
-				<%if f.reporting_manager == id.to_s %>
-					
+				<%if f.manager_id == id %>					
 						<li><strong class="list"><%= link_to f.name,f,title: f.designation %></strong> <small><%= f.designation %></small>
 						<% listing(f.id) %>
-						</li>
-									
+						</li>									
 				 <% end %>
 			<% end%>
 			</ul>
