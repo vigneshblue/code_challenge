@@ -1,8 +1,8 @@
 <% provide(:title, "Table") %>
 <div class="col-md-2 col-md-offset-10">                
  			<%= link_to "Add new", new_url, class: "btn btn-block btn-primary" %>
-  		</div>
-  		<div class="center">
+</div>
+ <div class="center">
 <h1>Employee Details</h1>
 <table class="table table-hover">
 <thead>
@@ -15,18 +15,16 @@
 	</thead>
 	<% @employee.each do |e| %>
 	<% if e.reporting_manager %>
-	<% @idman = Integer(e.reporting_manager) %>
-	<% @manager = EmployeeDetail.find(@idman) %>
+	<% @manager_name = e.reporting_details.name %>
 	<% else %>
-	<% @manager = EmployeeDetail.find(1) %>
-	<% @manager.name = nil %>
+	<% @manager_name = nil %>
 	<% end %>
 	<tbody>
 	<tr class="text-left">
 		<td><%= e.id %> </td>
 		<td><%= link_to e.name,e %> </td>
 		<td><%= e.designation %> </td>
-		<td><%= @manager.name %> </td>
+		<td><%= @manager_name %> </td>
 	</tr>
 	<% end %>
 	</tbody>
